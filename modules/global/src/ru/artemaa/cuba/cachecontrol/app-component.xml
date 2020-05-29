@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<app-component xmlns="http://schemas.haulmont.com/cuba/app-component.xsd"
+               dependsOn="com.haulmont.cuba">
+
+    <module name="global" blocks="*">
+        <artifact name="cache-control-global" appJar="true"/>
+
+        <property name="cuba.persistenceConfig" value="+ru/artemaa/cuba/cachecontrol/persistence.xml"/>
+        <property name="cuba.metadataConfig" value="+ru/artemaa/cuba/cachecontrol/metadata.xml"/>
+        <property name="cuba.viewsConfig" value="+ru/artemaa/cuba/cachecontrol/views.xml"/>
+    </module>
+    <module name="core" dependsOn="global" blocks="core">
+        <artifact name="cache-control-core" appJar="true"/>
+        <artifact name="cache-control-core" classifier="db" ext="zip" configuration="dbscripts"/>
+
+        <property name="cuba.springContextConfig" value="+ru/artemaa/cuba/cachecontrol/spring.xml"/>
+        <property name="cuba.mainMessagePack" value="+ru.artemaa.cuba.cachecontrol.core"/>
+    </module>
+    <module name="web" dependsOn="global" blocks="web">
+        <artifact name="cache-control-web" appJar="true"/>
+        <artifact name="cache-control-web" classifier="web" ext="zip" configuration="webcontent"/>
+
+        <property name="cuba.springContextConfig" value="+ru/artemaa/cuba/cachecontrol/web-spring.xml"/>
+        <property name="cuba.dispatcherSpringContextConfig"
+                  value="+ru/artemaa/cuba/cachecontrol/web-dispatcher-spring.xml"/>
+        <property name="cuba.windowConfig" value="+ru/artemaa/cuba/cachecontrol/web-screens.xml"/>
+        <property name="cuba.menuConfig" value="+ru/artemaa/cuba/cachecontrol/web-menu.xml"/>
+        <property name="cuba.permissionConfig" value="+ru/artemaa/cuba/cachecontrol/web-permissions.xml"/>
+        <property name="cuba.mainMessagePack" value="+ru.artemaa.cuba.cachecontrol.web"/>
+    </module>
+</app-component>

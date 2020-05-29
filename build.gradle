@@ -28,8 +28,8 @@ apply(plugin: 'cuba')
 cuba {
     artifact {
         group = 'ru.artemaa.cuba.cachecontrol'
-        version = '0.1'
-        isSnapshot = true
+        version = '1.0.0'
+        isSnapshot = false
     }
 }
 
@@ -75,6 +75,13 @@ configure(globalModule) {
     entitiesEnhancing {
         main {
             enabled = true
+        }
+    }
+
+    jar {
+        manifest {
+            attributes('App-Component-Id': cuba.artifact.group)
+            attributes('App-Component-Version': cuba.artifact.version + (cuba.artifact.isSnapshot ? '-SNAPSHOT' : ''))
         }
     }
 }
