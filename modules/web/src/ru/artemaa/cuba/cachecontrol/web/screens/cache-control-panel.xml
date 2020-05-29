@@ -6,7 +6,7 @@
         <groupBox>
             <form id="form">
                 <column>
-                    <lookupField id="cacheNameField" caption="msg://cacheNameField.caption"/>
+                    <lookupField id="cacheNameField" caption="msg://cacheNameField.caption" required="true"/>
                     <dateField id="lastSyncField" editable="false" datatype="localDateTime"
                                caption="msg://lastSyncField.caption"/>
                     <textField id="totalCachedItemsField" datatype="long" editable="false"
