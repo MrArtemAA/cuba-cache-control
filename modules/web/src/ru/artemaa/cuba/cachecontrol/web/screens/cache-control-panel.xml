@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://caption"
+        messagesPack="ru.artemaa.cuba.cachecontrol.web.screens">
+    <layout expand="editActions" spacing="true">
+        <groupBox>
+            <form id="form">
+                <column>
+                    <lookupField id="cacheNameField" caption="msg://cacheNameField.caption"/>
+                    <dateField id="lastSyncField" editable="false" datatype="localDateTime"
+                               caption="msg://lastSyncField.caption"/>
+                    <textField id="totalCachedItemsField" datatype="long" editable="false"
+                               caption="msg://totalItemsCachedField.caption"/>
+                    <progressBar id="progressBar" visible="false" indeterminate="true"
+                                 stylename="indeterminate-circle"/>
+                    <form>
+                        <column>
+                            <button id="refreshCacheBtn" caption="msg://refreshCacheBtn.caption" primary="true"
+                                    enable="false"/>
+                        </column>
+                    </form>
+                </column>
+            </form>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button id="closeBtn" icon="CANCEL" caption="msg://closeBtnCaption"/>
+        </hbox>
+    </layout>
+</window>
